@@ -2,23 +2,23 @@ import React, { Component } from "react";
 import Todo from "./component/todo";
 import Header from "./component/layout/header";
 import Additem from "./component/Additem";
-import uuid from "uuid";
+import { v4 as uuid } from "uuid";
 import "./App.css";
 class App extends Component {
   state = {
     todo: [
       {
-        id: uuid.v4(),
+        id: uuid(),
         title: "eat break fast",
         completed: false,
       },
       {
-        id: uuid.v4(),
+        id: uuid(),
         title: "go to training",
         completed: true,
       },
       {
-        id: uuid.v4(),
+        id: uuid(),
         title: "meeting with friends",
         completed: false,
       },
@@ -41,11 +41,12 @@ class App extends Component {
   };
   addtodo = (title) => {
     const newtodo = {
-      id: uuid.v4(),
+      id: uuid(),
       title,
       completed: false,
     };
     this.setState({ todo: [...this.state.todo, newtodo] });
+    console.log(newtodo.id);
   };
   render() {
     return (
