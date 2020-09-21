@@ -6,25 +6,10 @@ import Additem from "./component/Additem";
 import { v4 as uuid } from "uuid";
 import "./App.css";
 import About from "./component/pages/About";
+import axios from "axios";
 class App extends Component {
   state = {
-    todo: [
-      {
-        id: uuid(),
-        title: "eat break fast",
-        completed: false,
-      },
-      {
-        id: uuid(),
-        title: "go to training",
-        completed: true,
-      },
-      {
-        id: uuid(),
-        title: "meeting with friends",
-        completed: false,
-      },
-    ],
+    todo: [],
   };
   oncheck = (id) => {
     this.setState({
@@ -50,6 +35,14 @@ class App extends Component {
     this.setState({ todo: [...this.state.todo, newtodo] });
     console.log(newtodo.id);
   };
+  // get states from json placeholder
+  componentDidMount() {
+    axios
+      .get("https://jsonplaceholder.typicode.com/todos?_limit=10")
+      .then((res) => {
+        this.setState({ todo: res.data });
+      });
+  }
   render() {
     return (
       <Router>
