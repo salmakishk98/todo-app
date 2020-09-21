@@ -39,13 +39,12 @@ class App extends Component {
     });
   };
   addtodo = (title) => {
-    console.log(title);
     const newtodo = {
       id: 4,
       title,
       completed: false,
     };
-    this.setState({ todo: [...this.state.todo], newtodo });
+    this.setState({ todo: [...this.state.todo, newtodo] });
   };
   render() {
     return (
