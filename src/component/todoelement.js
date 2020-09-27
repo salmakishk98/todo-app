@@ -13,21 +13,19 @@ export class Todoelement extends Component {
   render() {
     return (
       <div style={this.get_style()}>
-        <p>
-          <input
-            type="checkbox"
-            defaultChecked={this.props.todo.completed}
-            onChange={this.props.oncheck.bind(this, this.props.todo.id)}
-          />{" "}
-          {this.props.todo.title}{" "}
-          <button
-            style={btn_style}
-            onClick={this.props.delete.bind(this, this.props.todo.id)}
-          >
-            {" "}
-            X{" "}
-          </button>
-        </p>
+        <input
+          type="checkbox"
+          defaultChecked={this.props.todo.completed}
+          onChange={this.props.oncheck.bind(this, this.props.todo.id)}
+        />{" "}
+        {this.props.todo.title}{" "}
+        <button
+          style={btn_style}
+          onClick={this.props.delete.bind(this, this.props.todo.id)}
+        >
+          {" "}
+          X{" "}
+        </button>
       </div>
     );
   }

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 class Todo extends Component {
   render() {
     return (
-      <p>
+      <div>
         {this.props.todes.map((todes) => (
           <Todoelement
             todo={todes}
@@ -12,7 +12,7 @@ class Todo extends Component {
             delete={this.props.delete}
           />
         ))}
-      </p>
+      </div>
     );
   }
   // Validate the prop passed to a child and warn the developer when a wrong props is passed, which may break your app.
